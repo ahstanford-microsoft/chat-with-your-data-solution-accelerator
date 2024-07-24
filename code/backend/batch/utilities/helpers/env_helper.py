@@ -81,12 +81,12 @@ class EnvHelper:
             "AZURE_SEARCH_USE_INTEGRATED_VECTORIZATION", "False"
         )
 
-        self.AZURE_AUTH_TYPE = os.getenv("AZURE_AUTH_TYPE", "keys")
+        self.AZURE_AUTH_TYPE = "keys" #os.getenv("AZURE_AUTH_TYPE", "keys")
         # Azure OpenAI
         self.AZURE_OPENAI_RESOURCE = os.getenv("AZURE_OPENAI_RESOURCE", "")
-        self.AZURE_OPENAI_MODEL = os.getenv("AZURE_OPENAI_MODEL", "")
+        self.AZURE_OPENAI_MODEL = os.getenv("AZURE_OPENAI_MODEL", "gpt-35-turbo-16k")
         self.AZURE_OPENAI_MODEL_NAME = os.getenv(
-            "AZURE_OPENAI_MODEL_NAME", "gpt-35-turbo"
+            "AZURE_OPENAI_MODEL_NAME", "gpt-35-turbo-16k"
         )
         self.AZURE_OPENAI_VISION_MODEL = os.getenv("AZURE_OPENAI_VISION_MODEL", "gpt-4")
         self.AZURE_OPENAI_TEMPERATURE = os.getenv("AZURE_OPENAI_TEMPERATURE", "0")
@@ -289,7 +289,7 @@ class SecretHelper:
         Returns:
             None
         """
-        self.USE_KEY_VAULT = os.getenv("USE_KEY_VAULT", "").lower() == "true"
+        self.USE_KEY_VAULT = True ## os.getenv("USE_KEY_VAULT", "").lower() == "true"
         self.secret_client = None
         if self.USE_KEY_VAULT:
             self.secret_client = SecretClient(

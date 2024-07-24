@@ -1,0 +1,57 @@
+// Add the actions/checkout@v2 action to the workflow file. This action checks out the repository code to the runner machine.
+name: Create Diagram
+on:
+  push:
+    branches:
+      - main
+jobs:
+    create-diagram:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+            uses: actions/checkout@v2
+        - name: Create diagram
+            run: |
+            echo "Creating diagram"
+            echo "Diagram created"
+
+// Add the githubocto/repo-visualizer action to the workflow file. This action generates a diagram of the repository.
+- name: Generate diagram
+  uses: githubocto/repo-visualizer@v0.4.0
+  with:
+    output-file: diagram.png
+    output-format: png
+    exclude-repos: '["^githubocto/repo-visualizer$"]'
+    exclude-users: '["^githubocto$"]'
+    exclude-orgs: '["^github$"]'
+    exclude-repos: '["^githubocto/repo-visualizer$"]'
+    exclude-users: '["^githubocto$"]'
+    exclude-orgs: '["^github$"]'
+    exclude-repos: '["^githubocto/repo-visualizer$"]'
+    exclude-users: '["^githubocto$"]'
+    exclude-orgs: '["^github$"]'
+
+// Add the actions/upload-artifact action to the workflow file. This action uploads the diagram to the artifacts.
+- name: Upload diagram
+  uses: actions/upload-artifact@v2
+  with:
+    name: diagram
+
+// Commit the changes to the main branch of the repository.
+git add .github/workflows/create-diagram.yml
+git commit -m "Add workflow to create diagram"
+git push origin main
+
+// TODO: Push the changes to the main branch of the repository.
+
+// TODO: View the workflow run in the Actions tab of the repository on GitHub.
+
+
+// Notes:
+    // The action requires the path to the repository code. You can use the ${{ github.workspace }} variable to get the path to the repository code.
+
+    // The action also requires the path to the output image file. You can specify the path to the output image file using the -o flag.
+
+    // The action generates a diagram in the DOT format. You can use the dot command to convert the DOT file to an image file.
+
+    // The following example shows how to use the githubocto/repo-visualizer action to generate a diagram of the repository code.

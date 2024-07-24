@@ -321,9 +321,10 @@ def create_app():
 
     sys.path.append(path.join(path.dirname(__file__), ".."))
 
-    load_dotenv(
-        path.join(path.dirname(__file__), "..", "..", ".env")
-    )  # Load environment variables from .env file
+    # This is only commented out because we haven't added an environment variable to toggle between environments
+    # load_dotenv(
+    #     path.join(path.dirname(__file__), "..", "..", ".env")
+    # )  # Load environment variables from .env file
 
     app = Flask(__name__)
     env_helper: EnvHelper = EnvHelper()
