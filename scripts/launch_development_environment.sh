@@ -8,6 +8,7 @@ echo "- You have installed bash and a bash distribution on your system as an ele
 echo "- Latest code from the main branch is synced."
 echo "- You must select a supported Azure region (e.g., northcentralus) for the gpt-35-turbo-16k 0613 model."
 echo "- The new Azure resource name you create must be 20 characters or less."
+echo "- You need to be using Python 3.11 (eg. winget install -e --id Python.Python.3.11 --scope machine)."
 read -p "Continue? (yes/no): "
 
 # Capture user input

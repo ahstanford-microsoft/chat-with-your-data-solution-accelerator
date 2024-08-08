@@ -1,0 +1,35 @@
+classDiagram
+    class AskResponse {
+        +string question
+        +string answer
+    }
+    class Citation {
+        +string source
+        +string reference
+    }
+    class ToolMessageContent {
+        +string content
+        +string toolName
+    }
+    class ChatMessage {
+        +string role
+        +string content
+    }
+    class ChatResponseChoice {
+        +ChatMessage message
+        +string choice
+    }
+    class ChatResponse {
+        +ChatResponseChoice[] choices
+        +string response
+    }
+    class ConversationRequest {
+        +ChatMessage initialMessage
+        +string requestId
+    }
+
+    AskResponse --> Citation
+    ToolMessageContent --> Citation
+    ChatResponseChoice --> ChatMessage
+    ChatResponse --> ChatResponseChoice
+    ConversationRequest --> ChatMessage
